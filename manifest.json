@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Smart Business Calculator",
+    "version": "1.0.0",
+    "description": "12 профессиональных бизнес-калькуляторов в вашем браузере",
+    
+    "permissions": [
+      "storage",
+      "clipboardWrite"
+    ],
+    
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_title": "Smart Calculator",
+      "default_icon": {
+        "16": "assets/icons/icon16.png",
+        "48": "assets/icons/icon48.png",
+        "128": "assets/icons/icon128.png"
+      }
+    },
+    
+    "options_ui": {
+      "page": "options/options.html",
+      "open_in_tab": false
+    },
+    
+    "icons": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png",
+      "512": "assets/icons/icon512.png"
+    },
+    
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }

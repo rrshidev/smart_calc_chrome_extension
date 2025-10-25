@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Business Calculator</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="header">
+            <h1>Smart Calculator</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle">🌙</button>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Поиск калькуляторов...">
+        </div>
+
+        <div class="calculator-tabs">
+            <button class="tab active" data-tab="basic">Основные</button>
+            <button class="tab" data-tab="financial">Финансовые</button>
+            <button class="tab" data-tab="business">Бизнес</button>
+            <button class="tab" data-tab="favorites">Избранные</button>
+        </div>
+
+        <div class="calculators-container">
+            <!-- Basic Calculators -->
+            <div class="tab-content active" id="basic-tab">
+                <div class="calculator-accordion" data-calc="percentOf">
+                    <div class="accordion-header">
+                        <span>Процент от числа</span>
+                        <button class="favorite-btn" data-calc="percentOf">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Число:</label>
+                            <input type="number" id="percentOfNumber" placeholder="Введите число">
+                        </div>
+                        <div class="input-group">
+                            <label>Процент:</label>
+                            <input type="number" id="percentOfPercent" placeholder="Введите процент">
+                        </div>
+                        <button class="calculate-btn" data-calc="percentOf">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="percentOfResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-accordion" data-calc="whatPercent">
+                    <div class="accordion-header">
+                        <span>Сколько процентов составляет</span>
+                        <button class="favorite-btn" data-calc="whatPercent">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Часть:</label>
+                            <input type="number" id="whatPercentPart" placeholder="Введите часть">
+                        </div>
+                        <div class="input-group">
+                            <label>Целое:</label>
+                            <input type="number" id="whatPercentWhole" placeholder="Введите целое">
+                        </div>
+                        <button class="calculate-btn" data-calc="whatPercent">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="whatPercentResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-accordion" data-calc="percentageChange">
+                    <div class="accordion-header">
+                        <span>Изменение в процентах</span>
+                        <button class="favorite-btn" data-calc="percentageChange">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Было:</label>
+                            <input type="number" id="changeOld" placeholder="Старое значение">
+                        </div>
+                        <div class="input-group">
+                            <label>Стало:</label>
+                            <input type="number" id="changeNew" placeholder="Новое значение">
+                        </div>
+                        <button class="calculate-btn" data-calc="percentageChange">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="percentageChangeResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Calculators -->
+            <div class="tab-content" id="financial-tab">
+                <div class="calculator-accordion" data-calc="compoundInterest">
+                    <div class="accordion-header">
+                        <span>Сложный процент</span>
+                        <button class="favorite-btn" data-calc="compoundInterest">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Начальная сумма:</label>
+                            <input type="number" id="principal" placeholder="Начальная сумма">
+                        </div>
+                        <div class="input-group">
+                            <label>Годовая ставка (%):</label>
+                            <input type="number" id="interestRate" placeholder="Годовая ставка">
+                        </div>
+                        <div class="input-group">
+                            <label>Срок (лет):</label>
+                            <input type="number" id="years" placeholder="Срок в годах">
+                        </div>
+                        <button class="calculate-btn" data-calc="compoundInterest">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="compoundInterestResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-accordion" data-calc="loanPayment">
+                    <div class="accordion-header">
+                        <span>Платеж по кредиту</span>
+                        <button class="favorite-btn" data-calc="loanPayment">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Сумма кредита:</label>
+                            <input type="number" id="loanAmount" placeholder="Сумма кредита">
+                        </div>
+                        <div class="input-group">
+                            <label>Годовая ставка (%):</label>
+                            <input type="number" id="loanRate" placeholder="Годовая ставка">
+                        </div>
+                        <div class="input-group">
+                            <label>Срок (мес.):</label>
+                            <input type="number" id="loanTerm" placeholder="Срок в месяцах">
+                        </div>
+                        <button class="calculate-btn" data-calc="loanPayment">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="loanPaymentResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Calculators -->
+            <div class="tab-content" id="business-tab">
+                <div class="calculator-accordion" data-calc="breakEven">
+                    <div class="accordion-header">
+                        <span>Точка безубыточности</span>
+                        <button class="favorite-btn" data-calc="breakEven">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Постоянные затраты:</label>
+                            <input type="number" id="fixedCosts" placeholder="Постоянные затраты">
+                        </div>
+                        <div class="input-group">
+                            <label>Цена за единицу:</label>
+                            <input type="number" id="unitPrice" placeholder="Цена за единицу">
+                        </div>
+                        <div class="input-group">
+                            <label>Переменные затраты:</label>
+                            <input type="number" id="variableCosts" placeholder="Переменные затраты на единицу">
+                        </div>
+                        <button class="calculate-btn" data-calc="breakEven">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="breakEvenResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-accordion" data-calc="roi">
+                    <div class="accordion-header">
+                        <span>ROI (Окупаемость)</span>
+                        <button class="favorite-btn" data-calc="roi">☆</button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="input-group">
+                            <label>Доход от инвестиции:</label>
+                            <input type="number" id="investmentGain" placeholder="Доход от инвестиции">
+                        </div>
+                        <div class="input-group">
+                            <label>Стоимость инвестиции:</label>
+                            <input type="number" id="investmentCost" placeholder="Стоимость инвестиции">
+                        </div>
+                        <button class="calculate-btn" data-calc="roi">Рассчитать</button>
+                        <div class="result-container">
+                            <div class="result" id="roiResult"></div>
+                            <button class="copy-btn hidden">📋</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites -->
+            <div class="tab-content" id="favorites-tab">
+                <div class="empty-state" id="favoritesEmpty">
+                    <p>Нет избранных калькуляторов</p>
+                    <p>Добавьте калькуляторы в избранное, нажав на звездочку ☆</p>
+                </div>
+                <div id="favoritesContainer"></div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button id="showHistory">📊 История</button>
+            <button id="openOptions">⚙️ Настройки</button>
+        </div>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="../utils/calculators.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

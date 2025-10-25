@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки - Smart Business Calculator</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="options-container">
+        <header class="header">
+            <h1>Настройки калькулятора</h1>
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="history">История</button>
+                <button class="nav-tab" data-tab="settings">Настройки</button>
+                <button class="nav-tab" data-tab="about">О программе</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- History Tab -->
+            <div class="tab-content active" id="history-tab">
+                <div class="section-header">
+                    <h2>История расчетов</h2>
+                    <div class="section-actions">
+                        <button id="exportHistory" class="btn-secondary">Экспорт CSV</button>
+                        <button id="clearHistory" class="btn-danger">Очистить историю</button>
+                    </div>
+                </div>
+                
+                <div class="history-container" id="historyList">
+                    <div class="empty-state">
+                        <p>История расчетов пуста</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="settings-section">
+                    <h3>Внешний вид</h3>
+                    <div class="setting-item">
+                        <label for="themeSelect">Тема:</label>
+                        <select id="themeSelect">
+                            <option value="light">Светлая</option>
+                            <option value="dark">Темная</option>
+                            <option value="auto">Системная</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Поведение</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="autoCopy">
+                            Автоматически копировать результаты
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="saveHistory">
+                            Сохранять историю расчетов
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Данные</h3>
+                    <div class="setting-item">
+                        <p>Размер хранилища: <span id="storageSize">0 KB</span></p>
+                        <button id="clearData" class="btn-danger">Очистить все данные</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div class="tab-content" id="about-tab">
+                <div class="about-section">
+                    <h3>Smart Business Calculator</h3>
+                    <p>Версия: 1.0.0</p>
+                    <p>12 профессиональных бизнес-калькуляторов в вашем браузере</p>
+                    
+                    <div class="feature-list">
+                        <h4>Функции:</h4>
+                        <ul>
+                            <li>12 специализированных калькуляторов</li>
+                            <li>Темная и светлая темы</li>
+                            <li>История расчетов</li>
+                            <li>Экспорт данных</li>
+                            <li>Избранные калькуляторы</li>
+                            <li>Быстрый поиск</li>
+                        </ul>
+                    </div>
+
+                    <div class="support-info">
+                        <h4>Поддержка</h4>
+                        <p>По вопросам и предложениям обращайтесь в службу поддержки.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
