@@ -170,7 +170,7 @@ v1.0.0 - Первый релиз
 </div>
 👨‍💻 Автор
 
-Ваше Имя
+RrshiDev (Ruslan Stepin)
 
     GitHub: @rrshidev
 
